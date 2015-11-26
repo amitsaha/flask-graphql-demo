@@ -1,3 +1,5 @@
+from flask import request, url_for
+import os
 import graphene
 
 
@@ -6,6 +8,7 @@ class Person(graphene.ObjectType):
     name = graphene.String()
     age = graphene.Float()
     id = graphene.Int()
+    avatar = graphene.String()
 
 # Database of Person(s)
 p1 = Person()
@@ -43,10 +46,18 @@ class UpdatePerson(graphene.Mutation):
 
     @classmethod
     def mutate(cls, instance, args, info):
+        url = None
+        if request.method == 'POST':
+            file = request.files['filedata']
+            file.save('./files/' + file.filename)
+            url = '/files/' + file.filename
+            print url
         name = args.get('name')
         for p in persons:
             if p.id == args.get('id'):
                 p.name = name
+                if url:
+                    p.avatar = url
                 return UpdatePerson(person=p)
 
 class UpdatePersonMutation(graphene.ObjectType):
