@@ -1,10 +1,13 @@
 ##Usage
 
-python app.py
+Star the server:
 
-##Examples
+```
+$ pip install -r requirements.txt
+$ python app.py
+```
 
-Query:
+Basic Query:
 
 ```
 http "http://127.0.0.1:5000/?query=query something{person(id:1){name}}"
