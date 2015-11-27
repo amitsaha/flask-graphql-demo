@@ -6,11 +6,7 @@ app = Flask(__name__)
 @app.route("/", methods=['GET', 'POST'])
 def index():
     query = request.args.get('query')
-    # We have files
-    # if request.method == 'POST':
-    #     file_data = request.files['filedata']
-
-    result = schema.execute(query, root=object())
+    result = schema.execute(query)
     if result.data:
         return jsonify(result.data)
     else:
