@@ -51,7 +51,6 @@ class UpdatePerson(graphene.Mutation):
             file = request.files['filedata']
             file.save('./files/' + file.filename)
             url = '/files/' + file.filename
-            print url
         name = args.get('name')
         for p in persons:
             if p.id == args.get('id'):
