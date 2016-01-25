@@ -1,21 +1,9 @@
 from schema import schema
+from graphql_flask import GraphQL
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
-
-@app.route("/", methods=['GET', 'POST'])
-def index():
-    query = request.args.get('query')
-    result = schema.execute(query)
-    if result.data:
-        return jsonify(result.data)
-    else:
-        return jsonify(
-            {
-                'status':500,
-                'message': 'Bad Query', # Send better error back to the client
-            }
-    )
+GraphQL(app, schema=schema)
 
 if __name__ == '__main__':
     app.run(debug=True)
