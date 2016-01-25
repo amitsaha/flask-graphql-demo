@@ -1,8 +1,8 @@
 ## Introduction
 
-This is a simple Flask application demonstrating the usage of [graphql-flask](https://pypi.python.org/pypi/graphql-flask).
+This is a simple Flask application demonstrating the usage of [graphql-flask](https://pypi.python.org/pypi/graphql-flask). In addition to querying the data, it demonstrates updating the existing data as well as file uploads (mutation).
 
-##Usage
+## Usage
 
 Star the server:
 
@@ -10,6 +10,8 @@ Star the server:
 $ pip install -r requirements.txt
 $ python app.py
 ```
+
+### Querying from the command line
 
 The following queries use the `httpie` command line client.
 
@@ -87,4 +89,9 @@ Server: Werkzeug/0.11.2 Python/2.7.10
     }
 }
 ```
+
+## GraphiQL interface
+
+Thanks to `graphql-flask`, by default the web application also exposes a graphiql endpoint. Open `http://127.0.0.1:5000/graphiql` in your browser to play with it.
+
 
