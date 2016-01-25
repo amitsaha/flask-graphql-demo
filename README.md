@@ -1,3 +1,7 @@
+## Introduction
+
+This is a simple Flask application demonstrating the usage of [graphql-flask](https://pypi.python.org/pypi/graphql-flask).
+
 ##Usage
 
 Star the server:
@@ -7,10 +11,13 @@ $ pip install -r requirements.txt
 $ python app.py
 ```
 
+The following queries use the `httpie` command line client.
+
 Basic Query:
 
+
 ```
-http "http://127.0.0.1:5000/?query=query something{person(id:1){name}}"
+$ http "http://127.0.0.1:5000/?query=query something{person(id:1){name}}"
 HTTP/1.0 200 OK
 Content-Length: 40
 Content-Type: application/json
@@ -62,7 +69,7 @@ Server: Werkzeug/0.11.2 Python/2.7.10
 Mutation + file uploads:
 
 ```
- http --form "http://127.0.0.1:5000/?query=mutation%20M%20{%20updateJack:updatePerson(id:%201,%20name:%20%22Hello1%22)%20{%20person%20{%20id%20name%20age%20avatar}%20}%20}" filedata@~/cat1.jpg
+$ http --form "http://127.0.0.1:5000/?query=mutation%20M%20{%20updateJack:updatePerson(id:%201,%20name:%20%22Hello1%22)%20{%20person%20{%20id%20name%20age%20avatar}%20}%20}" filedata@~/cat1.jpg
 HTTP/1.0 200 OK
 Content-Length: 142
 Content-Type: application/json
