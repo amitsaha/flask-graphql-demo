@@ -43,14 +43,16 @@ class UpdatePerson(graphene.Mutation):
     class Input:
         name = graphene.String()
         id = graphene.Int()
+        avatar = graphene.String()
 
     @classmethod
     def mutate(cls, instance, args, info):
         url = None
-        if request.method == 'POST':
-            file = request.files['filedata']
-            file.save('./files/' + file.filename)
-            url = '/files/' + file.filename
+        if args.get('avatar', None) and request.method == 'POST':
+            if request.files.get('file', None):
+                file = request.files['file']
+                file.save('./files/' + file.filename)
+                url = '/files/' + file.filename
         name = args.get('name')
         for p in persons:
             if p.id == args.get('id'):
