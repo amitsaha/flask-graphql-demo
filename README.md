@@ -30,6 +30,12 @@ Thanks to `graphql-flask`, by default the web application also exposes
 a graphiql endpoint. Open `http://127.0.0.1:5000/graphiql` in your
 browser to play with it.
 
+Example:
+
+![GraphiQL](graphiql.png "GraphiQL mutation query")
+
+
+
 ## Development
 
 Run tests using ``py.test``.
