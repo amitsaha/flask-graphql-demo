@@ -1,5 +1,5 @@
 from schema import schema
-from graphql_flask import GraphQL
+from flask_graphql import GraphQL
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)

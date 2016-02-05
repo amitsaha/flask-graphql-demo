@@ -1,14 +1,12 @@
-blinker (1.4)
-Flask (0.10.1)
-graphene (0.4.2)
-graphql-core (0.4.12)
-graphql-flask (1.1.0)
-graphql-relay (0.3.3)
-itsdangerous (0.24)
-Jinja2 (2.8)
-MarkupSafe (0.23)
-pip (6.0.8)
-setuptools (12.0.5)
-six (1.10.0)
-Werkzeug (0.11.2)
-pytest
+Flask==0.10.1
+Flask-GraphQL==1.1.0
+graphene==0.7.1
+graphql-core==0.4.12.1
+graphql-relay==0.3.3
+itsdangerous==0.24
+Jinja2==2.8
+MarkupSafe==0.23
+py==1.4.31
+pytest==2.8.7
+six==1.10.0
+Werkzeug==0.11.3
